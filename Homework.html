@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homework</title>
+    <style>
+        body {}
+
+        .text1 { color: red; text-decoration: overline; }
+        .text2 { color: #71ffb0; text-decoration: line-through; }
+        .text3 { color: rgb(70, 98, 120); text-decoration: underline; }
+        .text4 { color: rgba(0, 0, 0, 0.4); text-decoration: underline overline; }
+        .p1 { font-family: "Times New Roman", Times, serif; }
+        .p2 { font-family: Arial, Helvetica, sans-serif; }
+    </style>
+</head>
+
+<body>
+    <h1> This is your new banking app. Welcome.</h1>
+    <form id="user_form" onsubmit="update(event)">
+        <label for="user_value">Enter your net worth</label>
+        <input type="number" id="user_value">
+        <label for="user_earnings">Enter your earnings</label>
+        <input type="number" id="user_earnings">
+        <label for="user_spendings">Enter your spendings</label>
+        <input type="number" id="user_spendings">
+        <button type="submit">Enter</button>
+    </form>
+
+    <h2 id="user_updated_value">Your Updated Networth</h2>
+
+    <script>
+        function update(event) {
+            event.preventDefault();
+ 
+            var user_value = parseFloat(document.getElementById("user_value").value);
+            var user_earnings = parseFloat(document.getElementById("user_earnings").value);
+            var user_spendings = parseFloat(document.getElementById("user_spendings").value);
+
+            var user_updated_value = user_value + user_earnings - user_spendings;
+
+            document.getElementById("user_updated_value").innerHTML = 
+                "Your Updated Networth: " + user_updated_value;
+        }
+    </script>
+</body>
+</html>
